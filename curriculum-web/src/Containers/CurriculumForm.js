@@ -22,7 +22,7 @@ class CurriculumForm extends Component {
     DateEnd:     '',
     Instituicao: '',
     Curso:       '',
-    idUser: 0,
+    idUser: 1,
   }
   
   componentDidMount(){
@@ -33,18 +33,12 @@ class CurriculumForm extends Component {
         'Content-Type': 'application/json',
       },
     })
-      .then(response => {
-        if (response === true){
-          const idUser = response.data;
-          this.setState({ idUser: response.data });
-          console.log(this.state.idUser);
-        }
-        else
-          throw new Error(`Não foi possível encontrar Id. ${response['errors'][0].message}`);
-      })
+        .then(r => r.json().then(response => {
+          this.setState({ idUser: response });
+          console.log(response);
+        }))
       .catch(e => alert(e))
   }
-  
 
   onChangeInput = (e) => {
    
