@@ -26,6 +26,11 @@ namespace Curriculum.Api.Controllers
 			return CreateResponse(service.GetAll());
 		}
 
+		[HttpGet("GetId")]
+		public IActionResult GetId()
+		{
+			return CreateResponse(service.GetId());
+		}
 		[HttpGet("GetById")]
 		public IActionResult GetById([FromHeader]int id)
 		{

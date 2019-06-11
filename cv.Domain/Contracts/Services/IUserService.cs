@@ -11,5 +11,6 @@ namespace cv.Domain.Contracts.Services
 		bool Create(CreateUser dto);
 		bool Update(CreateUser dto);
 		bool delete(int id);
+		int GetId();
 	}
 }

@@ -20,6 +20,24 @@ namespace Service.Services
 		}
 
 		#region [ GET ]
+		public int GetId()
+		{
+			try
+			{
+				var id = repos.GetId();
+				if (id == 0)
+				{
+					AddValidationError("Não foi encontrado nenhum registro.", "GetId.UserService");
+					return 0;
+				}
+				return id;
+			}
+			catch (Exception e)
+			{
+				AddValidationError(e);
+				return 0;
+			}
+		}
 		public List<User> GetAll()
 		{
 			try

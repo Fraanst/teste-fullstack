@@ -49,6 +49,12 @@ namespace DataInfrastructure.Repositories
 					CreatedAt = u.CreatedAt,
 				}).FirstOrDefault();
 		}
+		public int GetId()
+		{
+			var id = _context.User.AsNoTracking().OrderByDescending(u => u.CreatedAt)
+				.Select(u => u.Id).FirstOrDefault();
+			return id;
+		}
 		#endregion
 
 		#region [ POST ]
