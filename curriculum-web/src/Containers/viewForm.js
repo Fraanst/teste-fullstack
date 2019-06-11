@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { StepperContext } from './FormPage';
-import { Button } from '@material-ui/core';
 
 class viewForm extends Component {
     state = {
@@ -36,7 +35,6 @@ class viewForm extends Component {
       },
     })
         .then(r => r.json().then(response => {
-            const id = response;
           this.setState({ idUser: response });
         }))
       .catch(e => alert(e))
@@ -69,14 +67,16 @@ class viewForm extends Component {
               }))
             .catch(e => alert(e))
 
-
   }
+
+
     render() {
         return (
           <StepperContext.Consumer>
-            { ({ activeStep, setActiveStep }) => (
-                <React.Fragment>
+            { 
+                ({ activeStep, setActiveStep }) => (
 
+                <React.Fragment>
                   <Typography variant="h6" gutterBottom>
                     Currículo
                   </Typography>
@@ -105,7 +105,4 @@ class viewForm extends Component {
         );
       }
     }
-
-
-
     export default viewForm;
