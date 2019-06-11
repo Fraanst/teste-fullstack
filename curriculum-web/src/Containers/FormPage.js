@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import UserForm from './UserForm';
 import { withStyles } from '@material-ui/styles';
 import CurriculumForm from './CurriculumForm';
+import viewForm from './viewForm';
 
 export const StepperContext = React.createContext({ activeStep: 0, setActiveStep: () => { } })
 
@@ -53,7 +54,7 @@ function getStepContent(step) {
         case 1:
             return <CurriculumForm />;
         case 2:
-        //   return <Review />;
+            return <viewForm />;
         default:
             throw new Error('Unknown step');
     }
